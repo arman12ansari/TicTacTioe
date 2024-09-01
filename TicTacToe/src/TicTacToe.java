@@ -22,12 +22,13 @@ public class TicTacToe {
         if(botAns.equalsIgnoreCase("Y")){
             Player bot = new Bot(id++,'$', BotDifficultyLevel.HARD);
             players.add(bot);
+            System.out.println("Bot " + bot.getName() + " added to the game with symbol " + bot.getSymbol());
         }
 
         while(id < dimension){
-            System.out.println("Please enter the name of the player");
+            System.out.println("Please enter the name of the player "+id);
             String playerName = sc.next();
-            System.out.println("Please enter the symbol for the player");
+            System.out.println("Please enter the symbol for the player "+id);
             char symbol = sc.next().charAt(0);
             Player newPlayer = new Player(id++, playerName, symbol, PlayerType.HUMAN);
             players.add(newPlayer);
@@ -52,7 +53,7 @@ public class TicTacToe {
                 break;
             }
 
-            if(game.getMoves().size() == Math.sqrt(game.getCurrentBoard().getDimension())){
+            if(game.getMoves().size() == (game.getCurrentBoard().getDimension() * game.getCurrentBoard().getDimension())){
                 System.out.println("Game is a draw");
                 break;
             }

@@ -1,5 +1,6 @@
 package model;
 
+import exception.InvalidBoardSizeException;
 import exception.InvalidBotCountException;
 import exception.InvalidPlayerException;
 import exception.InvalidSymbolSetUpException;
@@ -133,6 +134,12 @@ public class Game {
             }
         }
 
+        public void validateBoardSize() {
+            if(dimension < 3 || dimension > 10) {
+                throw new InvalidBoardSizeException("Board size should be greater than 2 or less than 11");
+            }
+        }
+
         public void validatePlayerSymbols() {
             HashSet<Character> symbols = new HashSet<>();
             for(Player player : players){
@@ -158,6 +165,7 @@ public class Game {
 
         public void validate() {
             validateNumberOfPlayers();
+            validateBoardSize();
             validatePlayerSymbols();
             validateBotCount();
         }

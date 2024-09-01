@@ -32,6 +32,18 @@ public class Board {
         }
     }
 
+    public List<Cell> getEmptyCells() {
+        List<Cell> emptyCells = new ArrayList<>();
+        for(List<Cell> row : matrix) {
+            for(Cell cell : row){
+                if(cell.getCellState().equals(CellState.EMPTY)) {
+                    emptyCells.add(cell);
+                }
+            }
+        }
+        return emptyCells;
+    }
+
     public int getDimension() {
         return dimension;
     }

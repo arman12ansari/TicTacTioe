@@ -10,6 +10,8 @@ public class Player {
     private String name;
     private char symbol;
     private PlayerType playerType;
+    private int row;
+    private int col;
 
     public Player(int id, String name, char symbol, PlayerType playerType) {
         this.id = id;
@@ -20,10 +22,8 @@ public class Player {
 
     public Move makeMove(Board board) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the row for the target cell:");
-        int row = sc.nextInt();
-        System.out.println("Enter the column for the target cell:");
-        int col = sc.nextInt();
+        System.out.println("Player " + this.getName() + " turn");
+        userInput(board);
 
         Cell playedCell = board.getMatrix().get(row).get(col);
         playedCell.setCellState(CellState.FILLED);
@@ -32,6 +32,31 @@ public class Player {
         return new Move(playedCell, this);
 
     }
+
+    public void userInput(Board board) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the row for the target cell:");
+        row = sc.nextInt();
+        System.out.println("Enter the column for the target cell:");
+        col = sc.nextInt();
+
+        validateMove(board, row, col);
+    }
+
+    private void validateMove(Board board, int row, int col) {
+        if (row < 0 || row >= board.getDimension() || col < 0 || col >= board.getDimension()) {
+            System.out.println("Invalid move. Please try again.");
+            userInput(board);
+            return;
+        }
+
+        Cell playedCell = board.getMatrix().get(row).get(col);
+        if (playedCell.getCellState() == CellState.FILLED) {
+            System.out.println("Cell already filled. Please try again.");
+            userInput(board);
+        }
+    }
+
     public int getId() {
         return id;
     }
