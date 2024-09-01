@@ -93,7 +93,7 @@ public class TicTacToe {
                         System.out.println();
                     }
 
-                    Thread.sleep(200);
+                    Thread.sleep(2000);
                 }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
