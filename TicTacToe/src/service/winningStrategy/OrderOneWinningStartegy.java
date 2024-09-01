@@ -71,25 +71,21 @@ public class OrderOneWinningStartegy implements WinningStrategy{
     }
 
     private boolean checkAndUpdateForRowHashMap(int row, char symbol) {
-        HashMap<Character, Integer> rowHashMap = rowHashMapList.get(row);
-
-        if(rowHashMap.containsKey(symbol)){
-            rowHashMap.put(symbol, rowHashMap.get(symbol)+1);
-            return rowHashMap.get(symbol) == dimension;
-        } else {
-            rowHashMap.put(symbol, 1);
-        }
-        return false;
+        return checkRowCol(row, symbol, rowHashMapList);
     }
 
     private boolean checkAndUpdateForColHashMap(int col, char symbol) {
-        HashMap<Character, Integer> colHashMap = colHashMapList.get(col);
+        return checkRowCol(col, symbol, colHashMapList);
+    }
 
-        if(colHashMap.containsKey(symbol)){
-            colHashMap.put(symbol, colHashMap.get(symbol)+1);
-            return colHashMap.get(symbol) == dimension;
+    private boolean checkRowCol(int rowCol, char symbol, List<HashMap<Character, Integer>> rowColHashMapList) {
+        HashMap<Character, Integer> rowColHashMap = rowColHashMapList.get(rowCol);
+
+        if(rowColHashMap.containsKey(symbol)){
+            rowColHashMap.put(symbol, rowColHashMap.get(symbol)+1);
+            return rowColHashMap.get(symbol) == dimension;
         } else {
-            colHashMap.put(symbol, 1);
+            rowColHashMap.put(symbol, 1);
         }
         return false;
     }
