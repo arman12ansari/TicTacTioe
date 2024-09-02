@@ -75,6 +75,8 @@ public class TicTacToe {
         if (replayInput.equalsIgnoreCase("Y")) {
             gameController.replayGame(game);
         }
+
+        System.out.println("Thank you for playing the game");
     }
 
     private static Board saveBoardState(Board board) {
