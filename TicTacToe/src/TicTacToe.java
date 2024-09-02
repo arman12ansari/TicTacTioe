@@ -73,31 +73,7 @@ public class TicTacToe {
         String replayInput = sc.next();
 
         if (replayInput.equalsIgnoreCase("Y")) {
-            List<Move> replayMoves = game.getMoves();
-            List<Board> boardStates = game.getBoardStates();
-
-            int size = replayMoves.size();
-            try {
-                for (int i = 0; i < size; i++) {
-                    Move move = replayMoves.get(i);
-                    Board board = boardStates.get(i);
-
-                    System.out.println("Move played by " + move.getPlayer().getName() + " on cell ( " + move.getCell().getRow() + " , " + move.getCell().getCol() + " )");
-                    System.out.println("Board Status after the move");
-
-                    for (int j = 0; j < board.getDimension(); j++) {
-                        List<Cell> cell = board.getMatrix().get(j);
-                        for (Cell cells : cell) {
-                            cells.displayCell();
-                        }
-                        System.out.println();
-                    }
-
-                    Thread.sleep(2000);
-                }
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
+            gameController.replayGame(game);
         }
     }
 

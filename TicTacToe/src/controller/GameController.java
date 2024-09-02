@@ -36,4 +36,8 @@ public class GameController {
     public Player checkWinner(Game game, Move lastMovePlayed){
         return game.getWinningStrategy().checkWinner(game.getCurrentBoard(), lastMovePlayed);
     }
+
+    public void replayGame(Game game) {
+        game.replayGame(game);
+    }
 }
