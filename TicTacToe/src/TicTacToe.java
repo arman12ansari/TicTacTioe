@@ -53,7 +53,7 @@ public class TicTacToe {
             Board saveState = saveBoardState(game.getCurrentBoard());
             game.getBoardStates().add(saveState);
 
-            if(players.get(playerIndex).getPlayerType().equals(PlayerType.HUMAN)) {
+            if (players.get(playerIndex).getPlayerType().equals(PlayerType.HUMAN)) {
 
                 System.out.println("Do you want to undo the move? Y or N");
                 String undoInput = sc.next();
@@ -61,7 +61,7 @@ public class TicTacToe {
                 if (undoInput.equalsIgnoreCase("Y")) {
                     gameController.undoMove(game);
 
-                    System.out.println("Move Played by "+players.get(playerIndex).getName()+" on cell ( "+movePlayed.getCell().getRow()+" , "+movePlayed.getCell().getCol()+" ) is undone");
+                    System.out.println("Move Played by " + players.get(playerIndex).getName() + " on cell ( " + movePlayed.getCell().getRow() + " , " + movePlayed.getCell().getCol() + " ) is undone");
 
                     playerIndex--;
                     playerIndex = playerIndex % players.size();

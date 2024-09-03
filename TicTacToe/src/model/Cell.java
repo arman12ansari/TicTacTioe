@@ -23,6 +23,7 @@ public class Cell {
             System.out.print("|" + player.getSymbol() + "|");
         }
     }
+
     public int getRow() {
         return row;
     }

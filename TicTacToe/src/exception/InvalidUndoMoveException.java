@@ -3,7 +3,7 @@ package exception;
 /**
  * @author mdarmanansari
  */
-public class InvalidUndoMoveException extends RuntimeException{
+public class InvalidUndoMoveException extends RuntimeException {
     public InvalidUndoMoveException() {
         super();
     }

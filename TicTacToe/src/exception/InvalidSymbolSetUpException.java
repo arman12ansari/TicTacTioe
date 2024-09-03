@@ -3,7 +3,7 @@ package exception;
 /**
  * @author mdarmanansari
  */
-public class InvalidSymbolSetUpException extends RuntimeException{
+public class InvalidSymbolSetUpException extends RuntimeException {
 
     public InvalidSymbolSetUpException() {
         super();

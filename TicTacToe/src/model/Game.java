@@ -35,7 +35,7 @@ public class Game {
         return new Builder();
     }
 
-    public void replayGame(Game game){
+    public void replayGame(Game game) {
         List<Move> replayMoves = game.getMoves();
         List<Board> boardStates = game.getBoardStates();
 
@@ -63,16 +63,16 @@ public class Game {
         }
     }
 
-    public void undoMove(Game game){
+    public void undoMove(Game game) {
         List<Move> playedMoves = game.getMoves();
         List<Board> boardStates = game.getBoardStates();
 
-        if(playedMoves.isEmpty()){
+        if (playedMoves.isEmpty()) {
             throw new InvalidUndoMoveException("No moves played yet");
         }
 
-        Move lastMove = playedMoves.get(playedMoves.size()-1);
-        Board lastBoard = boardStates.get(boardStates.size()-1);
+        Move lastMove = playedMoves.get(playedMoves.size() - 1);
+        Board lastBoard = boardStates.get(boardStates.size() - 1);
 
         game.getMoves().remove(lastMove);
         game.getBoardStates().remove(lastBoard);
@@ -174,36 +174,36 @@ public class Game {
         }
 
         public void validateNumberOfPlayers() {
-            if(players.size() < dimension-2 || players.size() >= dimension) {
+            if (players.size() < dimension - 2 || players.size() >= dimension) {
                 throw new InvalidPlayerException("Player size should be N-2 or N-1 as per board size");
             }
         }
 
         public void validateBoardSize() {
-            if(dimension < 3 || dimension > 10) {
+            if (dimension < 3 || dimension > 10) {
                 throw new InvalidBoardSizeException("Board size should be greater than 2 or less than 11");
             }
         }
 
         public void validatePlayerSymbols() {
             HashSet<Character> symbols = new HashSet<>();
-            for(Player player : players){
+            for (Player player : players) {
                 symbols.add(player.getSymbol());
             }
 
-            if(symbols.size() != players.size()) {
+            if (symbols.size() != players.size()) {
                 throw new InvalidSymbolSetUpException("There should be unique symbols for all the players");
             }
         }
 
-        public void validateBotCount(){
+        public void validateBotCount() {
             int botCount = 0;
-            for(Player player : players){
-                if(player.getPlayerType().equals(PlayerType.BOT)){
+            for (Player player : players) {
+                if (player.getPlayerType().equals(PlayerType.BOT)) {
                     botCount++;
                 }
             }
-            if(botCount > 1 || botCount < 0){
+            if (botCount > 1 || botCount < 0) {
                 throw new InvalidBotCountException("We can have maximum 1 bot per game");
             }
         }

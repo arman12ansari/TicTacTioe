@@ -14,18 +14,18 @@ public class Board {
         this.dimension = dimension;
         matrix = new ArrayList<>();
 
-        for(int i=0; i<dimension; i++) {
+        for (int i = 0; i < dimension; i++) {
             matrix.add(new ArrayList<>());
-            for(int j = 0; j<dimension; j++) {
+            for (int j = 0; j < dimension; j++) {
                 matrix.get(i).add(new Cell(i, j));
             }
         }
     }
 
     public void displayBoard() {
-        for(int i=0; i<dimension; i++) {
+        for (int i = 0; i < dimension; i++) {
             List<Cell> cell = matrix.get(i);
-            for(Cell cells : cell){
+            for (Cell cells : cell) {
                 cells.displayCell();
             }
             System.out.println();
@@ -34,9 +34,9 @@ public class Board {
 
     public List<Cell> getEmptyCells() {
         List<Cell> emptyCells = new ArrayList<>();
-        for(List<Cell> row : matrix) {
-            for(Cell cell : row){
-                if(cell.getCellState().equals(CellState.EMPTY)) {
+        for (List<Cell> row : matrix) {
+            for (Cell cell : row) {
+                if (cell.getCellState().equals(CellState.EMPTY)) {
                     emptyCells.add(cell);
                 }
             }

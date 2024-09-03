@@ -29,11 +29,11 @@ public class GameController {
         return game.getGameStatus();
     }
 
-    public Move executeMove(Game game, Player player){
+    public Move executeMove(Game game, Player player) {
         return player.makeMove(game.getCurrentBoard());
     }
 
-    public Player checkWinner(Game game, Move lastMovePlayed){
+    public Player checkWinner(Game game, Move lastMovePlayed) {
         return game.getWinningStrategy().checkWinner(game.getCurrentBoard(), lastMovePlayed);
     }
 

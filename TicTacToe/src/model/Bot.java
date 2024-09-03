@@ -1,12 +1,11 @@
 package model;
 
-import service.botPlayingStrategy.BotPlayingStrategy;
 import service.botPlayingStrategy.BotPlayingStrategyFactory;
 
 /**
  * @author mdarmanansari
  */
-public class Bot extends Player{
+public class Bot extends Player {
     private BotDifficultyLevel botDifficultyLevel;
 
     public Bot(int id, char Symbol, BotDifficultyLevel botDifficultyLevel) {

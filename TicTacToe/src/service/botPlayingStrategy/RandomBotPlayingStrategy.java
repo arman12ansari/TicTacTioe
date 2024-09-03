@@ -9,7 +9,7 @@ import java.util.Random;
 /**
  * @author mdarmanansari
  */
-public class RandomBotPlayingStrategy implements BotPlayingStrategy{
+public class RandomBotPlayingStrategy implements BotPlayingStrategy {
     @Override
     public Move makeMove(Board board, Player bot) {
         List<List<Cell>> matrix = board.getMatrix();
@@ -17,7 +17,7 @@ public class RandomBotPlayingStrategy implements BotPlayingStrategy{
 
         List<Cell> emptyCells = board.getEmptyCells();
 
-        if(emptyCells.isEmpty()){
+        if (emptyCells.isEmpty()) {
             throw new GameOverException("There is no empty cell in the board");
         }
 

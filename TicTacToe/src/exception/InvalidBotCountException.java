@@ -3,7 +3,7 @@ package exception;
 /**
  * @author mdarmanansari
  */
-public class InvalidBotCountException extends RuntimeException{
+public class InvalidBotCountException extends RuntimeException {
 
     public InvalidBotCountException() {
         super();

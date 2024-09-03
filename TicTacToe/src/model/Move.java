@@ -1,7 +1,5 @@
 package model;
 
-import java.security.PublicKey;
-
 /**
  * @author mdarmanansari
  */

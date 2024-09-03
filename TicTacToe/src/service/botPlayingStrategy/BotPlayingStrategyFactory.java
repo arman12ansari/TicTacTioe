@@ -2,8 +2,6 @@ package service.botPlayingStrategy;
 
 import model.BotDifficultyLevel;
 
-import static model.BotDifficultyLevel.*;
-
 /**
  * @author mdarmanansari
  */
