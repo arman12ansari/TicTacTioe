@@ -1,9 +1,6 @@
 package model;
 
-import exception.InvalidBoardSizeException;
-import exception.InvalidBotCountException;
-import exception.InvalidPlayerException;
-import exception.InvalidSymbolSetUpException;
+import exception.*;
 import service.winningStrategy.WinningStrategy;
 
 import java.util.ArrayList;
@@ -64,6 +61,26 @@ public class Game {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public void undoMove(Game game){
+        List<Move> playedMoves = game.getMoves();
+        List<Board> boardStates = game.getBoardStates();
+
+        if(playedMoves.isEmpty()){
+            throw new InvalidUndoMoveException("No moves played yet");
+        }
+
+        Move lastMove = playedMoves.get(playedMoves.size()-1);
+        Board lastBoard = boardStates.get(boardStates.size()-1);
+
+        game.getMoves().remove(lastMove);
+        game.getBoardStates().remove(lastBoard);
+
+        Cell lastMoveCell = lastMove.getCell();
+        lastMoveCell.setCellState(CellState.EMPTY);
+        lastMoveCell.setPlayer(null);
+
     }
 
     public Board getCurrentBoard() {

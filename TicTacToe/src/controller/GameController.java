@@ -40,4 +40,8 @@ public class GameController {
     public void replayGame(Game game) {
         game.replayGame(game);
     }
+
+    public void undoMove(Game game) {
+        game.undoMove(game);
+    }
 }
